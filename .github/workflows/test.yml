@@ -20,4 +20,4 @@ jobs:
           ${{ runner.os }}-node-
     - run: npm ci
     - name: build
-      run: node_modules/.bin/asc src/index.ts -b bin/main.wasm
+      run: npm run asbuild

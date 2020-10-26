@@ -19,5 +19,10 @@
   },
   "dependencies": {
     "@fastly/as-compute": "^0.1.0"
+  },
+  "scripts": {
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --target release",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
   }
 }
