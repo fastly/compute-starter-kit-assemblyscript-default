@@ -15,7 +15,7 @@ Get to know the Fastly Compute@Edge environment with a basic starter that demons
 
 ## Understanding the code
 
-This starter is intentionally lightweight, and requires no dependencies aside from the [`@fastly/as-compute`](https://npmjs.com/package/@fastly/ass-compute) package. It will help you understand the basics of processing requests at the edge using Fastly. This starter includes implementations of common patterns explained in our [using Compute@Edge](/learning/compute/using/) and [VCL migration](/learning/compute/migrate) guides.
+This starter is intentionally lightweight, and requires no dependencies aside from the [`@fastly/as-compute`](https://npmjs.com/package/@fastly/as-compute) package. It will help you understand the basics of processing requests at the edge using Fastly. This starter includes implementations of common patterns explained in our [using Compute@Edge](/learning/compute/using/) and [VCL migration](/learning/compute/migrate) guides.
 
 The path `/backend` will attempt to send a request to a backend called "backend_name".  If the service you have installed this starter on doesn't have a backend defined, use the [`fastly backend create`](/reference/cli/backend/create/) command to create one. Modify the following lines of the starter to use the name of the backend you created:
 
