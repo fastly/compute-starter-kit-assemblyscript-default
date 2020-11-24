@@ -24,6 +24,8 @@ function main(req: Request): Response {
     if (!VALID_METHODS.includes(req.method())) {
         return new Response(String.UTF8.encode("This method is not allowed"), {
             status: 405,
+            headers: null,
+            url: null
         });
     }
 
@@ -36,6 +38,8 @@ function main(req: Request): Response {
     if (method == "GET" && path == "/") {
         return new Response(String.UTF8.encode("Welcome to Fastly Compute@Edge!"), {
           status: 200,
+          headers: null,
+          url: null
         });
     }
 
@@ -65,7 +69,9 @@ function main(req: Request): Response {
 
     // Catch all other requests and return a 404.
     return new Response(String.UTF8.encode("The page you requested could not be found"), {
-        status: 200,
+        status: 404,
+        headers: null,
+        url: null
     });
 }
 
