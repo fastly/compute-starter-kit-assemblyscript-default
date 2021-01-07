@@ -17,11 +17,11 @@ const OTHER_BACKEND_NAME = "other_backend_name";
 // synthetic responses.
 function main(req: Request): Response {
     // Make any desired changes to the client request.
-    req.headers().set("Host", "example.com");
+    req.headers.set("Host", "example.com");
 
     // We can filter requests that have unexpected methods.
     const VALID_METHODS = ["HEAD", "GET", "POST"];
-    if (!VALID_METHODS.includes(req.method())) {
+    if (!VALID_METHODS.includes(req.method)) {
         return new Response(String.UTF8.encode("This method is not allowed"), {
             status: 405,
             headers: null,
@@ -29,8 +29,8 @@ function main(req: Request): Response {
         });
     }
 
-    let method = req.method();
-    let urlParts = req.url().split("//").pop().split("/");
+    let method = req.method;
+    let urlParts = req.url.split("//").pop().split("/");
     let host = urlParts.shift();
     let path = "/" + urlParts.join("/");
 
