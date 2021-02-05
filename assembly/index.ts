@@ -1,4 +1,4 @@
-import { Request,  Response, Fastly } from "@fastly/as-compute";
+import { Request,  Response, Headers, Fastly } from "@fastly/as-compute";
 
 // The name of a backend server associated with this service.
 //
