@@ -1,4 +1,4 @@
-import { Request,  Response, Fastly } from "@fastly/as-compute";
+import { Request,  Response, Headers, Fastly } from "@fastly/as-compute";
 
 // The name of a backend server associated with this service.
 //
@@ -36,10 +36,11 @@ function main(req: Request): Response {
 
     // If request is a `GET` to the `/` path, send a default response.
     if (method == "GET" && path == "/") {
-        return new Response(String.UTF8.encode("Welcome to Fastly Compute@Edge!"), {
+        let headers = new Headers();
+        headers.set('Content-Type', 'text/html; charset=utf-8');
+        return new Response(String.UTF8.encode("<iframe src='https://developer.fastly.com/compute-welcome' style='border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%'></iframe>\n"), {
           status: 200,
-          headers: null,
-          url: null
+          headers
         });
     }
 
