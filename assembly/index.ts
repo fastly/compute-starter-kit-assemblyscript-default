@@ -1,4 +1,4 @@
-import { Request,  Response, Headers, Fastly } from "@fastly/as-compute";
+import { Request,  Response, Headers, URL, Fastly } from "@fastly/as-compute";
 
 // The name of a backend server associated with this service.
 //
@@ -30,12 +30,10 @@ function main(req: Request): Response {
     }
 
     let method = req.method;
-    let urlParts = req.url.split("//").pop().split("/");
-    let host = urlParts.shift();
-    let path = "/" + urlParts.join("/");
+    let url = new URL(req.url);
 
     // If request is a `GET` to the `/` path, send a default response.
-    if (method == "GET" && path == "/") {
+    if (method == "GET" && url.pathname == "/") {
         let headers = new Headers();
         headers.set('Content-Type', 'text/html; charset=utf-8');
         return new Response(String.UTF8.encode("<iframe src='https://developer.fastly.com/compute-welcome' style='border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%'></iframe>\n"), {
@@ -45,7 +43,7 @@ function main(req: Request): Response {
     }
 
     // If request is a `GET` to the `/backend` path, send to a named backend.
-    if (method == "GET" && path == "/backend") {
+    if (method == "GET" && url.pathname == "/backend") {
         // Request handling logic could go here...
         // E.g., send the request to an origin backend and then cache the
         // response for one minute.
@@ -58,7 +56,7 @@ function main(req: Request): Response {
     }
 
     // If request is a `GET` to a path starting with `/other/`.
-    if (method == "GET" && path.startsWith("/other/")) {
+    if (method == "GET" && url.pathname.startsWith("/other/")) {
         // Send request to a different backend and don't cache response.
         let cacheOverride = new Fastly.CacheOverride();
         cacheOverride.setPass();
