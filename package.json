@@ -15,10 +15,10 @@
   },
   "homepage": "https://github.com/fastly/compute-starter-kit-assemblyscript-default#readme",
   "devDependencies": {
-    "assemblyscript": "^0.18.12"
+    "assemblyscript": "^0.19.7"
   },
   "dependencies": {
-    "@fastly/as-compute": "^0.3.0"
+    "@fastly/as-compute": "^0.4.1"
   },
   "scripts": {
     "asbuild:untouched": "asc assembly/index.ts --target debug",
