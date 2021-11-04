@@ -14,8 +14,11 @@
     "url": "https://github.com/fastly/compute-starter-kit-assemblyscript-default/issues"
   },
   "homepage": "https://github.com/fastly/compute-starter-kit-assemblyscript-default#readme",
+  "engines": {
+    "node": "^16"
+  },
   "devDependencies": {
-    "assemblyscript": "^0.19.7"
+    "assemblyscript": "^0.19.18"
   },
   "dependencies": {
     "@fastly/as-compute": "^0.4.1"
