@@ -3,3 +3,4 @@ name = "Default starter for AssemblyScript"
 description = "A basic starter kit that demonstrates routing, simple synthetic responses and overriding caching rules."
 authors = ["<oss@fastly.com>"]
 language = "assemblyscript"
+# service_id = ""
