@@ -1,3 +1,33 @@
+const welcomePage = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Welcome to AS on Compute@Edge</title>
+    <link
+      rel="icon"
+      href="https://developer.fastly.com/favicon-32x32.png"
+      type="image/png"
+    />
+  </head>
+  <body>
+    <iframe
+      src="https://developer.fastly.com/compute-welcome"
+      style="
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      "
+    ></iframe>
+  </body>
+</html>`
 
 //! Default Compute@Edge template program.
 import { Request, Response, Headers, URL, Fastly } from "@fastly/as-compute";
@@ -61,7 +91,7 @@ function main(req: Request): Response {
         let headers = new Headers();
         headers.set('Content-Type', 'text/html; charset=utf-8');
 
-        return new Response(String.UTF8.encode("<iframe src='https://developer.fastly.com/compute-welcome' style='border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%'></iframe>\n"), {
+        return new Response(String.UTF8.encode(welcomePage), {
             status: 200,
             headers,
             url: null
