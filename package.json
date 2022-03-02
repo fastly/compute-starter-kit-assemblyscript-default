@@ -21,7 +21,7 @@
     "assemblyscript": "^0.19.18"
   },
   "dependencies": {
-    "@fastly/as-compute": "^0.4.3"
+    "@fastly/as-compute": "^0.5.0"
   },
   "scripts": {
     "asbuild:untouched": "asc assembly/index.ts --target debug",
