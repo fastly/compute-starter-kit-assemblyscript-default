@@ -1,4 +1,4 @@
-# Compute@Edge default starter kit for AssemblyScript
+# Default Starter Kit for AssemblyScript
 
 [![Deploy to Fastly](https://deploy.edgecompute.app/button)](https://deploy.edgecompute.app/deploy)
 
