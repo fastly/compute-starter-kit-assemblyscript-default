@@ -11,7 +11,7 @@ import { Request, Response, Headers, URL, Fastly } from "@fastly/as-compute";
 
 function main(req: Request): Response {
     // Filter requests that have unexpected methods.
-    if (!["HEAD", "GET"].includes(req.method)) {
+    if (!["HEAD", "GET", "PURGE"].includes(req.method)) {
         return new Response(String.UTF8.encode("This method is not allowed"), {
             status: 405,
             headers: null,
